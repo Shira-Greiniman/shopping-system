@@ -1,0 +1,28 @@
+{
+  "dynamic": "strict",
+  "properties": {
+    "orderId": { "type": "keyword" },
+    "createdAt": { "type": "date" },
+    "customer": {
+      "properties": {
+        "firstName": { "type": "keyword" },
+        "lastName": { "type": "keyword" },
+        "fullName": { "type": "text" },
+        "address": { "type": "text" },
+        "email": { "type": "keyword" }
+      }
+    },
+    "items": {
+      "type": "nested",
+      "properties": {
+        "productId": { "type": "integer" },
+        "name": { "type": "text" },
+        "categoryName": { "type": "keyword" },
+        "quantity": { "type": "integer" },
+        "unitPrice": { "type": "scaled_float", "scaling_factor": 100 },
+        "lineTotal": { "type": "scaled_float", "scaling_factor": 100 }
+      }
+    },
+    "total": { "type": "scaled_float", "scaling_factor": 100 }
+  }
+}
